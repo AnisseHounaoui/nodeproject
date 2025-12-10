@@ -6,21 +6,19 @@ on:
 
 
 jobs:
-	build:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Récuperation du code
+      uses: actions/checkout@v2
 
-		runs-on: ubuntu-latest
+    - name: Node.js installation
+      uses: actions/setup-node@v3
 
-		steps:
-		- name: Récuperation du code
-			uses: actions/checkout@v2
+    - name: Installation de npm
+      uses: npm install
 
-		- name: Node.js installation
-			uses: actions/setup-node@v3
-
-		- name: Installation de npm
-			uses: npm install
-
-		- name: Lancement de tests npm
-			uses: npm test
+    - name: Lancement de tests npm
+      uses: npm test
 
 
